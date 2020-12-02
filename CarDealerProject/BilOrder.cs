@@ -90,6 +90,7 @@ namespace CarDealerProject
             this.BilMærke = bilMærke;
             this.BilModel = bilModel;
             this.BilUdstyr = bilUdstyr;
+            this.BilMotor = bilMotor;
         }
     }
 }
