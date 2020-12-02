@@ -8,6 +8,16 @@ using System.Threading.Tasks;
 
 namespace CarDealerProject
 {
+    public partial class Bildb
+    {
+        public int BilID { get; set; }
+        public int ForhandlerID { get; set; }
+        public string BilMærke { get; set; }
+        public string BilModel { get; set; }
+        public string BilUdstyr { get; set; }
+        public string BilMotor { get; set; }
+    }
+
     public class Bil : INotifyPropertyChanged
     {
         // TEST
