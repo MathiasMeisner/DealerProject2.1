@@ -12,7 +12,7 @@ namespace CarDealerProject
     {
         public int BilID { get; set; }
         public int ForhandlerID { get; set; }
-        public string BilMærke { get; set; }
+        public string BilMaerke { get; set; }
         public string BilModel { get; set; }
         public string BilUdstyr { get; set; }
         public string BilMotor { get; set; }
@@ -44,13 +44,13 @@ namespace CarDealerProject
             }
         }
 
-        private string bilMærke;
-        public string BilMærke
+        private string bilMaerke;
+        public string BilMaerke
         {
-            get { return BilMærke; }
+            get { return bilMaerke; }
             set
             {
-                bilMærke = value;
+                bilMaerke = value;
                 OnPropertyChanged();
             }
         }
@@ -95,11 +95,11 @@ namespace CarDealerProject
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public Bil(int bilID, int forhandlerID, string bilMærke, string bilModel, string bilUdstyr, string bilMotor)
+        public Bil(int bilID, int forhandlerID, string bilMaerke, string bilModel, string bilUdstyr, string bilMotor)
         {
             this.BilID = bilID;
             this.ForhandlerID = forhandlerID;
-            this.BilMærke = bilMærke;
+            this.BilMaerke = bilMaerke;
             this.BilModel = bilModel;
             this.BilUdstyr = bilUdstyr;
             this.BilMotor = bilMotor;

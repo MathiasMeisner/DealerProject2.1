@@ -9,6 +9,19 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <ListView SelectedItem="{x:Bind ViewModel.SelectedBil, Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.OC_bilmaerker}" HorizontalAlignment="Left" Height="375" Margin="502,146,0,0" VerticalAlignment="Top" Width="291">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Bil">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{x:Bind BilID, Mode=TwoWay}"/>
+                        <TextBlock Text="{x:Bind ForhandlerID, Mode=TwoWay}"/>
+                        <TextBlock Text="{x:Bind BilModel, Mode=TwoWay}"/>
+                        <TextBlock Text="{x:Bind BilMaerke, Mode=TwoWay}"/>
+                        <TextBlock Text="{x:Bind BilUdstyr, Mode=TwoWay}"/>
+                        <TextBlock Text="{x:Bind BilMotor, Mode=TwoWay}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
