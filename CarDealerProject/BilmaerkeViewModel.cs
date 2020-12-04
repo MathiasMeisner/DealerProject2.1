@@ -154,7 +154,7 @@ namespace CarDealerProject
                     flowerOrderResponse.EnsureSuccessStatusCode();
 
                     //Get the hotels as a ICollection
-                    var orders = flowerOrderResponse.Content.ReadAsAsync<ICollection<Bildb>>().Result;
+                    var orders = flowerOrderResponse.Content.ReadAsAsync<ICollection<Bil>>().Result;
 
                     foreach (var order in orders)
                     {
