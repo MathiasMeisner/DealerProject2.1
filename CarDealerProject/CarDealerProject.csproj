@@ -122,6 +122,7 @@
     <Compile Include="BilmaerkeViewModel.cs" />
     <Compile Include="BilOrder.cs" />
     <Compile Include="ForhandlerOrder.cs" />
+    <Compile Include="KundeOrder.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
