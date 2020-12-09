@@ -22,6 +22,7 @@ namespace CarDealerProject
         const string serverUrl = "http://localhost:53751/";
 
         public ObservableCollection<Bil> OC_bilmaerker { get; set; }
+        //public ObservableCollection<Bil> OC_mercedes { get; set; }
 
         /*public string NavnBlomst { get => navnBlomst; set => navnBlomst = value; }
         public int AntalBlomst { get => antalBlomst; set => antalBlomst = value; }
@@ -37,6 +38,7 @@ namespace CarDealerProject
         public BilmaerkeViewModel()
         {
             OC_bilmaerker = new ObservableCollection<Bil>();
+            //OC_mercedes = new ObservableCollection<Bil>(); 
 
             //Testdata 
             OC_bilmaerker.Add(new Bil(1, 1, "Renault", "Model1", "Udstyr1", "Motor1"));
@@ -88,7 +90,7 @@ namespace CarDealerProject
 
                     foreach (var order in orders)
                     {
-
+                        if (order.BilMaerke == "Mercedes")
                         this.OC_bilmaerker.Add(new Bil(order.BilID, order.ForhandlerID, order.BilMaerke, order.BilModel, order.BilUdstyr, order.BilMotor));
                     }
 

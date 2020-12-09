@@ -22,7 +22,7 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Bil>()
-                .Property(e => e.BilMærke)
+                .Property(e => e.BilMaerke)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Bil>()

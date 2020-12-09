@@ -22,7 +22,7 @@ namespace DealerProject
 
         [Required]
         [StringLength(30)]
-        public string BilMærke { get; set; }
+        public string BilMaerke { get; set; }
 
         [Required]
         [StringLength(30)]
