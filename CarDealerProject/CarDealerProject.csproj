@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="BilmaerkeViewModel.cs" />
     <Compile Include="BilOrder.cs" />
+    <Compile Include="BookingOrder.cs" />
     <Compile Include="ForhandlerOrder.cs" />
     <Compile Include="KundeOrder.cs" />
     <Compile Include="MainPage.xaml.cs">
