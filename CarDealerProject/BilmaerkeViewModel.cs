@@ -18,6 +18,7 @@ namespace CarDealerProject
         const string serverUrl = "http://localhost:53751/";
 
         public ObservableCollection<Bil> OC_bilmaerker { get; set; }
+        public ObservableCollection<Forhandler> OC_forhandlere { get; set; }
 
         public Bil SelectedBil { get; set; }
 
@@ -30,11 +31,12 @@ namespace CarDealerProject
         public BilmaerkeViewModel()
         {
             OC_bilmaerker = new ObservableCollection<Bil>();
+            OC_forhandlere = new ObservableCollection<Forhandler>();
 
             //Testdata 
-            OC_bilmaerker.Add(new Bil(1, 1, "Renault", "Model1", "Udstyr1", "Motor1"));
-            OC_bilmaerker.Add(new Bil(2, 2, "Mercedes", "Model2", "Udstyr2", "Motor2"));
-            OC_bilmaerker.Add(new Bil(3, 3, "Mærke1", "Model3", "Udstyr3", "Motor3"));
+            OC_forhandlere.Add(new Forhandler(1, "Navn", "Adresse", "By", 84848484, "Email"));
+            OC_forhandlere.Add(new Forhandler(2, "Navn", "Adresse", "By", 84848484, "Email"));
+            OC_forhandlere.Add(new Forhandler(3, "Navn", "Adresse", "By", 84848484, "Email"));
 
             HentData = new RelayCommand(HentAllDataFraDiskAsync);
             HentMercedes = new RelayCommand(HentMercedesDataFraDiskAsync);
@@ -109,7 +111,5 @@ namespace CarDealerProject
                 if 
             }*/
         }
-
-
     }
 }

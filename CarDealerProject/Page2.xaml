@@ -10,6 +10,26 @@
 
     <Grid>
         <TextBlock x:Name="pageTitle" Text="Page 2"/>
-        <HyperlinkButton Content="Tilbage" Click="HyperlinkButton_Click" HorizontalAlignment="Center"/>
+        <ListView HorizontalAlignment="Left" Height="375" Margin="160,284,0,0" VerticalAlignment="Top" Width="500">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Forhandler">
+                    <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="2">
+                        <StackPanel Margin="3" Orientation="Horizontal">
+                            <TextBlock Padding="10, 0, 0, 0" Text="Navn:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerNavn, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="Adresse:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerAdresse, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="By:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerBy, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="Tlf:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerTelefon, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="Email:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerEmail, Mode=TwoWay}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <HyperlinkButton Content="Tilbage" Click="HyperlinkButton_Click" Margin="190,815,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
