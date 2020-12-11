@@ -19,7 +19,7 @@ namespace CarDealerProject
 
         public ObservableCollection<Bil> OC_bilmaerker { get; set; }
 
-        public Bil SelectedBilMaerke { get; set; }
+        public Bil SelectedBil { get; set; }
 
         public RelayCommand GemData { get; set; }
         public RelayCommand HentData { get; set; }
@@ -36,16 +36,33 @@ namespace CarDealerProject
             OC_bilmaerker.Add(new Bil(2, 2, "Mercedes", "Model2", "Udstyr2", "Motor2"));
             OC_bilmaerker.Add(new Bil(3, 3, "Mærke1", "Model3", "Udstyr3", "Motor3"));
 
-            HentData = new RelayCommand(HentDataFraDiskAsync);
-            HentMercedes = new RelayCommand(HentDataFraDiskAsync);
-            HentRenault = new RelayCommand(HentDataFraDiskAsync);
-            HentDacia = new RelayCommand(HentDataFraDiskAsync);
+            HentData = new RelayCommand(HentAllDataFraDiskAsync);
+            HentMercedes = new RelayCommand(HentMercedesDataFraDiskAsync);
+            HentRenault = new RelayCommand(HentRenaultDataFraDiskAsync);
+            HentDacia = new RelayCommand(HentDaciaDataFraDiskAsync);
         }
 
-        /// <summary>
-        /// Henter en json fil fra disken 
-        /// </summary>
-        private void HentDataFraDiskAsync()
+        private void HentAllDataFraDiskAsync()
+        {
+            HentDataFraDiskAsync("");
+        }
+
+        private void HentMercedesDataFraDiskAsync()
+        {
+            HentDataFraDiskAsync("Mercedes");
+        }
+
+        private void HentRenaultDataFraDiskAsync()
+        {
+            HentDataFraDiskAsync("Renault");
+        }
+
+        private void HentDaciaDataFraDiskAsync()
+        {
+            HentDataFraDiskAsync("Dacia");
+        }
+
+        private void HentDataFraDiskAsync(string BilMaerke)
         {
             OC_bilmaerker.Clear();
             List<Bil> nyListe = new List<Bil>();
@@ -77,7 +94,7 @@ namespace CarDealerProject
 
                     foreach (var order in orders)
                     {
-                        if (order.BilMaerke == "Mercedes")
+                        if (order.BilMaerke == BilMaerke)
                         this.OC_bilmaerker.Add(new Bil(order.BilID, order.ForhandlerID, order.BilMaerke, order.BilModel, order.BilUdstyr, order.BilMotor));
                     }
                 }
@@ -92,5 +109,7 @@ namespace CarDealerProject
                 if 
             }*/
         }
+
+
     }
 }
