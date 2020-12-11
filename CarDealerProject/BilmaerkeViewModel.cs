@@ -21,6 +21,7 @@ namespace CarDealerProject
         public ObservableCollection<Forhandler> OC_forhandlere { get; set; }
 
         public Bil SelectedBil { get; set; }
+        public Forhandler SelectedForhandler { get; set; }
 
         public RelayCommand GemData { get; set; }
         public RelayCommand HentData { get; set; }

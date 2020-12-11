@@ -22,9 +22,11 @@ namespace CarDealerProject
     /// </summary>
     public sealed partial class Page2 : Page
     {
+        public BilmaerkeViewModel ViewModel { get; set; }
         public Page2()
         {
             this.InitializeComponent();
+            ViewModel = new BilmaerkeViewModel();
         }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)

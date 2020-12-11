@@ -10,7 +10,7 @@
 
     <Grid>
         <TextBlock x:Name="pageTitle" Text="Page 2"/>
-        <ListView HorizontalAlignment="Left" Height="375" Margin="160,284,0,0" VerticalAlignment="Top" Width="500">
+        <ListView SelectedItem="{x:Bind ViewModel.SelectedForhandler, Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.OC_forhandlere}" HorizontalAlignment="Left" Height="375" Margin="160,284,0,0" VerticalAlignment="Top" Width="500">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Forhandler">
                     <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="2">
@@ -30,6 +30,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <HyperlinkButton Content="Tilbage" Click="HyperlinkButton_Click" Margin="190,815,0,0" VerticalAlignment="Top"/>
+        <HyperlinkButton Content="Tilbage" Click="HyperlinkButton_Click" Margin="180,710,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
