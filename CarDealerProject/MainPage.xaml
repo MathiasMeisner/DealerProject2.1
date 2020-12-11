@@ -26,7 +26,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Command="{x:Bind Mode=OneWay, Path=ViewModel.HentData}" Content="Hent" Height="52" Margin="1083,382,0,0" VerticalAlignment="Top" Width="85"/>
         <Button Command="{x:Bind Mode=OneWay, Path=ViewModel.HentMercedes}" Content="Mercedes" Height="52" Margin="160,160,0,0" VerticalAlignment="Top" Width="85"/>
         <Button Command="{x:Bind Mode=OneWay, Path=ViewModel.HentRenault}" Content="Renault" Height="52" Margin="330,160,0,0" VerticalAlignment="Top" Width="85"/>
         <Button Command="{x:Bind Mode=OneWay, Path=ViewModel.HentDacia}" Content="Dacia" Height="52" Margin="500,160,0,0" VerticalAlignment="Top" Width="85"/>
