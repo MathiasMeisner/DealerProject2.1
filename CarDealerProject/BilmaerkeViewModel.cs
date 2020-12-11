@@ -28,6 +28,7 @@ namespace CarDealerProject
         public RelayCommand HentMercedes { get; set; }
         public RelayCommand HentRenault { get; set; }
         public RelayCommand HentDacia { get; set; }
+        public RelayCommand HentForhandlere { get; set; }
 
         public BilmaerkeViewModel()
         {
@@ -43,6 +44,8 @@ namespace CarDealerProject
             HentMercedes = new RelayCommand(HentMercedesDataFraDiskAsync);
             HentRenault = new RelayCommand(HentRenaultDataFraDiskAsync);
             HentDacia = new RelayCommand(HentDaciaDataFraDiskAsync);
+
+            HentForhandlere = new RelayCommand(HentForhandlereFraDiskAsync);
         }
 
         private void HentAllDataFraDiskAsync()
@@ -65,11 +68,19 @@ namespace CarDealerProject
             HentDataFraDiskAsync("Dacia");
         }
 
+        private void HentForhandlereFraDiskAsync()
+        {
+            HentAllDataFraDiskAsync();
+        }
+
         private void HentDataFraDiskAsync(string BilMaerke)
         {
             OC_bilmaerker.Clear();
             List<Bil> nyListe = new List<Bil>();
             //nyListe = await PersistencyService.HentDataFraDiskAsyncPS();
+
+            OC_forhandlere.Clear();
+            List<Forhandler> forhandlerListe = new List<Forhandler>();
 
             //Setup client handler
             HttpClientHandler handler = new HttpClientHandler();
@@ -88,17 +99,25 @@ namespace CarDealerProject
                 {
                     //Get all the flower orders from the database
                     var flowerOrderResponse = client.GetAsync("api/bils").Result;
+                    var forhandlerOrderResponse = client.GetAsync("api/forhandlers").Result;
 
                     //Check response -> throw exception if NOT successful
                     flowerOrderResponse.EnsureSuccessStatusCode();
+                    forhandlerOrderResponse.EnsureSuccessStatusCode();
 
                     //Get the hotels as a ICollection
                     var orders = flowerOrderResponse.Content.ReadAsAsync<ICollection<Bil>>().Result;
+                    var orders2 = forhandlerOrderResponse.Content.ReadAsAsync<ICollection<Forhandler>>().Result;
 
                     foreach (var order in orders)
                     {
                         if (order.BilMaerke == BilMaerke)
                         this.OC_bilmaerker.Add(new Bil(order.BilID, order.ForhandlerID, order.BilMaerke, order.BilModel, order.BilUdstyr, order.BilMotor));
+                    }
+
+                    foreach (var order in orders2)
+                    {
+                        this.OC_forhandlere.Add(new Forhandler(order.ForhandlerID, order.ForhandlerNavn, order.ForhandlerAdresse, order.ForhandlerBy, order.ForhandlerTelefon, order.ForhandlerEmail));
                     }
                 }
                 catch

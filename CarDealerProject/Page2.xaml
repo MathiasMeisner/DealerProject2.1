@@ -31,5 +31,6 @@
             </ListView.ItemTemplate>
         </ListView>
         <HyperlinkButton Content="Tilbage" Click="HyperlinkButton_Click" Margin="180,710,0,0" VerticalAlignment="Top"/>
+        <Button Command="{x:Bind Mode=OneWay, Path=ViewModel.HentForhandlere}" Content="Forhandlere" Height="52" Margin="410,690,0,0" VerticalAlignment="Top" Width="85"/>
     </Grid>
 </Page>
