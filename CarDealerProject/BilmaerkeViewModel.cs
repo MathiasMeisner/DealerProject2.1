@@ -23,6 +23,9 @@ namespace CarDealerProject
 
         public RelayCommand GemData { get; set; }
         public RelayCommand HentData { get; set; }
+        public RelayCommand HentMercedes { get; set; }
+        public RelayCommand HentRenault { get; set; }
+        public RelayCommand HentDacia { get; set; }
 
         public BilmaerkeViewModel()
         {
@@ -34,6 +37,9 @@ namespace CarDealerProject
             OC_bilmaerker.Add(new Bil(3, 3, "Mærke1", "Model3", "Udstyr3", "Motor3"));
 
             HentData = new RelayCommand(HentDataFraDiskAsync);
+            HentMercedes = new RelayCommand(HentDataFraDiskAsync);
+            HentRenault = new RelayCommand(HentDataFraDiskAsync);
+            HentDacia = new RelayCommand(HentDataFraDiskAsync);
         }
 
         /// <summary>
