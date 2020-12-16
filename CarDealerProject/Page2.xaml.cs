@@ -33,5 +33,10 @@ namespace CarDealerProject
         {
             this.Frame.Navigate(typeof(MainPage));
         }
+
+        private void Hyperlinkbutton_Click2(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Page3));
+        }
     }
 }

@@ -27,12 +27,12 @@ namespace CarDealerProject
         //Properties->Web->Project URL in the web service project 
         const string serverUrl = "http://localhost:53751/";
         
-        private int bookingID;
-        private int forhandlerID;
-        private string kundeEmail;
-        private int bilID;
-        private int medarbejderID;
-        private DateTime bookTime;
+        public int bookingID;
+        public int forhandlerID;
+        public string kundeEmail;
+        public int bilID;
+        public int medarbejderID;
+        public DateTime bookTime;
 
         public ObservableCollection<Bil> OC_bilmaerker { get; set; }
         public ObservableCollection<Forhandler> OC_forhandlere { get; set; }
@@ -104,6 +104,9 @@ namespace CarDealerProject
             OC_forhandlere.Clear();
             List<Forhandler> forhandlerListe = new List<Forhandler>();
 
+            OC_bookings.Clear();
+            List<Booking> bookingListe = new List<Booking>();
+
             //Setup client handler
             HttpClientHandler handler = new HttpClientHandler();
             handler.UseDefaultCredentials = true;
@@ -122,14 +125,17 @@ namespace CarDealerProject
                     //Get all the flower orders from the database
                     var flowerOrderResponse = client.GetAsync("api/bils").Result;
                     var forhandlerOrderResponse = client.GetAsync("api/forhandlers").Result;
+                    var bookingOrderResponse = client.GetAsync("api/bookings").Result;
 
                     //Check response -> throw exception if NOT successful
                     flowerOrderResponse.EnsureSuccessStatusCode();
                     forhandlerOrderResponse.EnsureSuccessStatusCode();
+                    bookingOrderResponse.EnsureSuccessStatusCode();
 
                     //Get the hotels as a ICollection
                     var orders = flowerOrderResponse.Content.ReadAsAsync<ICollection<Bil>>().Result;
                     var orders2 = forhandlerOrderResponse.Content.ReadAsAsync<ICollection<Forhandler>>().Result;
+                    var orders3 = bookingOrderResponse.Content.ReadAsAsync<ICollection<Booking>>().Result;
 
                     foreach (var order in orders)
                     {
@@ -140,6 +146,11 @@ namespace CarDealerProject
                     foreach (var order in orders2)
                     {
                         this.OC_forhandlere.Add(new Forhandler(order.ForhandlerID, order.ForhandlerNavn, order.ForhandlerAdresse, order.ForhandlerBy, order.ForhandlerTelefon, order.ForhandlerEmail));
+                    }
+
+                    foreach (var order in orders3)
+                    {
+                        this.OC_bookings.Add(new Booking(order.BookingID, order.ForhandlerID, order.KundeEmail, order.BilID, order.MedarbejderID, order.BookTime));
                     }
                 }
                 catch
@@ -159,7 +170,6 @@ namespace CarDealerProject
             Booking booking = new Booking(bookingID, forhandlerID, kundeEmail, bilID, medarbejderID, bookTime); 
 
             OC_bookings.Add(booking);
-            List<Booking> bookingListe = new List<Booking>();
 
             //Setup client handler
             HttpClientHandler handler = new HttpClientHandler();
@@ -184,7 +194,7 @@ namespace CarDealerProject
                     bookingOrderResponse.EnsureSuccessStatusCode();
 
                     //Get the hotels as a ICollection
-                    var flowerOrder = bookingOrderResponse.Content.ReadAsAsync<Booking>().Result;
+                    var orders3 = bookingOrderResponse.Content.ReadAsAsync<Booking>().Result;
 
                     //SletSelectedBlomst.RaiseCanExecuteChanged();
                 }
