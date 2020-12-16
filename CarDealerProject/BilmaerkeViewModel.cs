@@ -193,7 +193,7 @@ namespace CarDealerProject
 
                 try
                 {
-                    Booking fo = new Booking(bookingID, forhandlerID, kundeEmail, bilID, medarbejderID, bookTime);
+                    Booking fo = new Booking(bookingID, forhandlerID, kundeEmail, bilID, medarbejderID, DateTime.Now);
                     //Get all the flower orders from the database
                     var bookingOrderResponse = client.PostAsJsonAsync<Booking>("api/bookings", fo).Result;
 
