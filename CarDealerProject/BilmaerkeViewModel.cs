@@ -11,17 +11,36 @@ using Windows.Storage;
 
 namespace CarDealerProject
 {
+    /*public partial class Booking
+    {
+        public int bookingID { get; set; }
+        public int forhandlerID { get; set; }
+        public string kundeEmail { get; set; }
+        public int bilID { get; set; }
+        public int medarbejderID { get; set; }
+        public DateTime bookTime { get; set; }
+    }*/
+
     public class BilmaerkeViewModel
     {
         //Ensure tha this is the same URL as applied under 
         //Properties->Web->Project URL in the web service project 
         const string serverUrl = "http://localhost:53751/";
+        
+        private int bookingID;
+        private int forhandlerID;
+        private string kundeEmail;
+        private int bilID;
+        private int medarbejderID;
+        private DateTime bookTime;
 
         public ObservableCollection<Bil> OC_bilmaerker { get; set; }
         public ObservableCollection<Forhandler> OC_forhandlere { get; set; }
+        public ObservableCollection<Booking> OC_bookings { get; set; }
 
         public Bil SelectedBil { get; set; }
         public Forhandler SelectedForhandler { get; set; }
+        public Booking SelectedBooking { get; set; }
 
         public RelayCommand GemData { get; set; }
         public RelayCommand HentData { get; set; }
@@ -29,11 +48,13 @@ namespace CarDealerProject
         public RelayCommand HentRenault { get; set; }
         public RelayCommand HentDacia { get; set; }
         public RelayCommand HentForhandlere { get; set; }
+        public RelayCommand AddNyBooking { get; set; }
 
         public BilmaerkeViewModel()
         {
             OC_bilmaerker = new ObservableCollection<Bil>();
             OC_forhandlere = new ObservableCollection<Forhandler>();
+            OC_bookings = new ObservableCollection<Booking>();
 
             //Testdata 
             OC_forhandlere.Add(new Forhandler(1, "Navn", "Adresse", "By", 84848484, "Email"));
@@ -46,6 +67,7 @@ namespace CarDealerProject
             HentDacia = new RelayCommand(HentDaciaDataFraDiskAsync);
 
             HentForhandlere = new RelayCommand(HentForhandlereFraDiskAsync);
+            AddNyBooking = new RelayCommand(AddBooking);
         }
 
         private void HentAllDataFraDiskAsync()
@@ -130,6 +152,47 @@ namespace CarDealerProject
             {
                 if 
             }*/
+        }
+
+        public void AddBooking()
+        {
+            Booking booking = new Booking(bookingID, forhandlerID, kundeEmail, bilID, medarbejderID, bookTime); 
+
+            OC_bookings.Add(booking);
+            List<Booking> bookingListe = new List<Booking>();
+
+            //Setup client handler
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+
+            using (var client = new HttpClient(handler))
+            {
+                //Initialize client
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //Request JSON format
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                try
+                {
+                    Booking fo = new Booking(bookingID, forhandlerID, kundeEmail, bilID, medarbejderID, bookTime);
+                    //Get all the flower orders from the database
+                    var bookingOrderResponse = client.PostAsJsonAsync<Booking>("api/bookings", fo).Result;
+
+                    //Check response -> throw exception if NOT successful
+                    bookingOrderResponse.EnsureSuccessStatusCode();
+
+                    //Get the hotels as a ICollection
+                    var flowerOrder = bookingOrderResponse.Content.ReadAsAsync<Booking>().Result;
+
+                    //SletSelectedBlomst.RaiseCanExecuteChanged();
+                }
+                catch
+                {
+
+                }
+            }
         }
     }
 }

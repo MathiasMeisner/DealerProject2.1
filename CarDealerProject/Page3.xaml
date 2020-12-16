@@ -10,21 +10,12 @@
 
     <Grid>
         <TextBlock x:Name="pageTitle" Text="Page 3"/>
-        <ListView SelectedItem="{x:Bind ViewModel.SelectedForhandler, Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.OC_forhandlere}" HorizontalAlignment="Left" Height="375" Margin="160,284,0,0" VerticalAlignment="Top" Width="500">
+        <ListView SelectedItem="{x:Bind ViewModel.SelectedBooking, Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.OC_bookings}" HorizontalAlignment="Left" Height="375" Margin="160,284,0,0" VerticalAlignment="Top" Width="500">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="local:Forhandler">
+                <DataTemplate x:DataType="local:Booking">
                     <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="2">
                         <StackPanel Margin="3" Orientation="Horizontal">
-                            <TextBlock Padding="10, 0, 0, 0" Text="Navn:"/>
-                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerNavn, Mode=TwoWay}"/>
-                            <TextBlock Padding="10, 0, 0, 0" Text="Adresse:"/>
-                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerAdresse, Mode=TwoWay}"/>
-                            <TextBlock Padding="10, 0, 0, 0" Text="By:"/>
-                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerBy, Mode=TwoWay}"/>
-                            <TextBlock Padding="10, 0, 0, 0" Text="Tlf:"/>
-                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerTelefon, Mode=TwoWay}"/>
-                            <TextBlock Padding="10, 0, 0, 0" Text="Email:"/>
-                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerEmail, Mode=TwoWay}"/>
+
                         </StackPanel>
                     </Border>
                 </DataTemplate>
