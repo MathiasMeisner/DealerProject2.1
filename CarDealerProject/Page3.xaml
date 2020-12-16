@@ -10,32 +10,30 @@
 
     <Grid>
         <TextBlock x:Name="pageTitle" Text="Page 3"/>
-        <ListView SelectedItem="{x:Bind ViewModel.SelectedBooking, Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.OC_bookings}" HorizontalAlignment="Left" Height="375" Margin="160,284,0,0" VerticalAlignment="Top" Width="500">
+        <ListView SelectedItem="{x:Bind ViewModel.SelectedBooking, Mode=TwoWay}" ItemsSource="{x:Bind ViewModel.OC_bookings}" HorizontalAlignment="Left" Height="375" Margin="120,72,0,0" VerticalAlignment="Top" Width="500">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Booking">
                     <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="2">
                         <StackPanel Margin="3" Orientation="Horizontal">
-                            <TextBox Text="{x:Bind BookingID, Mode=TwoWay}"/>
-                            <TextBlock Text="{x:Bind ForhandlerID, Mode=TwoWay}"/>
-                            <TextBlock Text="{x:Bind KundeEmail, Mode=TwoWay}"/>
-                            <TextBlock Text="{x:Bind BilID, Mode=TwoWay}"/>
-                            <TextBlock Text="{x:Bind MedarbejderID, Mode=TwoWay}"/>
-                            <TextBlock Text="{x:Bind BookTime, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="ID:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind BookingID, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="Forhandler:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerID, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="Email:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind KundeEmail, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="Bil:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind BilID, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="Medarbejder:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind MedarbejderID, Mode=TwoWay}"/>
+
                         </StackPanel>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBox HorizontalAlignment="Left" Margin="120,500,0,0" Description="BookingID" Text="{x:Bind Path=ViewModel.bookingID, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="216,500,0,0" Description="ForhandlerID" Text="{x:Bind Path=ViewModel.forhandlerID, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="346,500,0,0" Description="Email" Text="{x:Bind Mode=TwoWay, Path=ViewModel.kundeEmail}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="446,500,0,0" Description="BilID" Text="{x:Bind Mode=TwoWay, Path=ViewModel.bilID}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="546,500,0,0" Description="MedarbejderID" Text="{x:Bind Mode=TwoWay, Path=ViewModel.medarbejderID}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="646,500,0,0" Description="Dato" Text="{x:Bind Mode=TwoWay, Path=ViewModel.bookTime}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-
-        <Button Command="{x:Bind ViewModel.AddNyBooking,Mode=OneWay}" Content="Tilføj Booking" Height="47" Margin="120,582,0,0" VerticalAlignment="Top" Width="110"/>
+        
 
         <HyperlinkButton Content="Tilbage" Click="HyperlinkButton_Click" Margin="180,710,0,0" VerticalAlignment="Top"/>
-        <Button Command="{x:Bind Mode=OneWay, Path=ViewModel.HentForhandlere}" Content="Forhandlere" Height="52" Margin="410,690,0,0" VerticalAlignment="Top" Width="85"/>
+        <Button Command="{x:Bind Mode=OneWay, Path=ViewModel.HentBookings}" Content="Bookings" Height="52" Margin="410,690,0,0" VerticalAlignment="Top" Width="85"/>
     </Grid>
 </Page>

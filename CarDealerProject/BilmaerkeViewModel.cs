@@ -48,6 +48,7 @@ namespace CarDealerProject
         public RelayCommand HentRenault { get; set; }
         public RelayCommand HentDacia { get; set; }
         public RelayCommand HentForhandlere { get; set; }
+        public RelayCommand HentBookings { get; set; }
         public RelayCommand AddNyBooking { get; set; }
 
         public BilmaerkeViewModel()
@@ -67,6 +68,7 @@ namespace CarDealerProject
             HentDacia = new RelayCommand(HentDaciaDataFraDiskAsync);
 
             HentForhandlere = new RelayCommand(HentForhandlereFraDiskAsync);
+            HentBookings = new RelayCommand(HentBookingsFraDiskAsync);
             AddNyBooking = new RelayCommand(AddBooking);
         }
 
@@ -91,6 +93,11 @@ namespace CarDealerProject
         }
 
         private void HentForhandlereFraDiskAsync()
+        {
+            HentAllDataFraDiskAsync();
+        }
+
+        private void HentBookingsFraDiskAsync()
         {
             HentAllDataFraDiskAsync();
         }
