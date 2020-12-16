@@ -57,10 +57,10 @@ namespace CarDealerProject
             OC_forhandlere = new ObservableCollection<Forhandler>();
             OC_bookings = new ObservableCollection<Booking>();
 
-            //Testdata 
+            /*//Testdata 
             OC_forhandlere.Add(new Forhandler(1, "Navn", "Adresse", "By", 84848484, "Email"));
             OC_forhandlere.Add(new Forhandler(2, "Navn", "Adresse", "By", 84848484, "Email"));
-            OC_forhandlere.Add(new Forhandler(3, "Navn", "Adresse", "By", 84848484, "Email"));
+            OC_forhandlere.Add(new Forhandler(3, "Navn", "Adresse", "By", 84848484, "Email"));*/
 
             HentData = new RelayCommand(HentAllDataFraDiskAsync);
             HentMercedes = new RelayCommand(HentMercedesDataFraDiskAsync);
