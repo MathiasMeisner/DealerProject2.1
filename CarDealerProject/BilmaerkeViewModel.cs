@@ -30,6 +30,9 @@ namespace CarDealerProject
         public int bookingID;
         public int forhandlerID;
         public string kundeEmail;
+        public string kundeNavn;
+        public string bilModel;
+        public string forhandlerNavn;
         public int bilID;
         public int medarbejderID;
         public DateTime bookTime;
@@ -157,7 +160,7 @@ namespace CarDealerProject
 
                     foreach (var order in orders3)
                     {
-                        this.OC_bookings.Add(new Booking(order.BookingID, order.ForhandlerID, order.KundeEmail, order.BilID, order.MedarbejderID, order.BookTime));
+                        this.OC_bookings.Add(new Booking(order.KundeNavn, order.KundeEmail, order.BilModel, order.ForhandlerNavn, order.BookTime));
                     }
                 }
                 catch
@@ -174,7 +177,7 @@ namespace CarDealerProject
 
         public void AddBooking()
         {
-            Booking booking = new Booking(bookingID, forhandlerID, kundeEmail, bilID, medarbejderID, bookTime); 
+            Booking booking = new Booking(kundeNavn, kundeEmail, bilModel, forhandlerNavn,  bookTime); 
 
             OC_bookings.Add(booking);
 
@@ -193,7 +196,7 @@ namespace CarDealerProject
 
                 try
                 {
-                    Booking fo = new Booking(bookingID, forhandlerID, kundeEmail, bilID, medarbejderID, DateTime.Now);
+                    Booking fo = new Booking(kundeNavn, kundeEmail, bilModel, forhandlerNavn, DateTime.Now);
                     //Get all the flower orders from the database
                     var bookingOrderResponse = client.PostAsJsonAsync<Booking>("api/bookings", fo).Result;
 
