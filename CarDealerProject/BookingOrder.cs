@@ -76,6 +76,40 @@ namespace CarDealerProject
             }
         }
 
+        private string kundeNavn;
+        public string KundeNavn
+        {
+            get { return kundeNavn; }
+            set
+            {
+                kundeNavn = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string forhandlerNavn;
+        public string ForhandlerNavn
+        {
+            get { return forhandlerNavn; }
+            set
+            {
+                forhandlerNavn = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string bilModel;
+        public string BilModel
+        {
+            get { return bilModel; }
+            set
+            {
+                bilModel = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -83,13 +117,12 @@ namespace CarDealerProject
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public Booking(int bookingID, int forhandlerID, string kundeEmail, int bilID, int medarbejderID, DateTime bookTime)
+        public Booking(string kundeNavn, string kundeEmail, string bilModel, string forhandlerNavn, DateTime bookTime)
         {
-            this.BookingID = bookingID;
-            this.ForhandlerID = forhandlerID;
+            this.KundeNavn = kundeNavn;
             this.KundeEmail = kundeEmail;
-            this.BilID = bilID;
-            this.MedarbejderID = medarbejderID;
+            this.BilModel = bilModel;
+            this.ForhandlerNavn = forhandlerNavn;
             this.BookTime = bookTime;
         }
     }
