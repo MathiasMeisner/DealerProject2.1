@@ -117,8 +117,9 @@ namespace CarDealerProject
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public Booking(string kundeNavn, string kundeEmail, string bilModel, string forhandlerNavn, DateTime bookTime)
+        public Booking(int bookingID, string kundeNavn, string kundeEmail, string bilModel, string forhandlerNavn, DateTime bookTime)
         {
+            this.BookingID = bookingID;
             this.KundeNavn = kundeNavn;
             this.KundeEmail = kundeEmail;
             this.BilModel = bilModel;
