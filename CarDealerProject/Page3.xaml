@@ -28,10 +28,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBox HorizontalAlignment="Left" Margin="120,527,0,0" Description="ForhandlerID" Text="{x:Bind Path=ViewModel.forhandlerID, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="110"/>
+        <TextBox HorizontalAlignment="Left" Margin="120,527,0,0" Description="Navn" Text="{x:Bind Path=ViewModel.kundeNavn, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="110"/>
         <TextBox HorizontalAlignment="Left" Margin="260,527,0,0" Description="Email" Text="{x:Bind Mode=TwoWay, Path=ViewModel.kundeEmail}" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="110"/>
-        <TextBox HorizontalAlignment="Left" Margin="398,527,0,0" Description="BilID" Text="{x:Bind Mode=TwoWay, Path=ViewModel.bilID}" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="110"/>
-        <TextBox HorizontalAlignment="Left" Margin="535,527,0,0" Description="MedarbejderID" Text="{x:Bind Mode=TwoWay, Path=ViewModel.medarbejderID}" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="110"/>
+        <TextBox HorizontalAlignment="Left" Margin="398,527,0,0" Description="Bilmodel" Text="{x:Bind Mode=TwoWay, Path=ViewModel.bilModel}" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="110"/>
+        <TextBox HorizontalAlignment="Left" Margin="535,527,0,0" Description="Forhandler" Text="{x:Bind Mode=TwoWay, Path=ViewModel.forhandlerNavn}" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="110"/>
 
         <Button Command="{x:Bind ViewModel.AddNyBooking,Mode=OneWay}" Content="Tilføj Booking" Height="47" Margin="120,611,0,0" VerticalAlignment="Top" Width="110"/>
 
