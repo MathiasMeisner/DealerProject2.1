@@ -11,15 +11,27 @@ namespace DealerProject
     {
         public int BookingID { get; set; }
 
-        public int ForhandlerID { get; set; }
+        //public int ForhandlerID { get; set; }
 
         [Required]
         [StringLength(50)]
         public string KundeEmail { get; set; }
 
-        public int BilID { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string KundeNavn { get; set; }
 
-        public int MedarbejderID { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string ForhandlerNavn { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string BilModel { get; set; }
+
+        //public int BilID { get; set; }
+
+        //public int MedarbejderID { get; set; }
 
         public DateTime BookTime { get; set; }
 
