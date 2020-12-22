@@ -38,9 +38,9 @@
                 .IsUnicode(false);
 
             modelBuilder.Entity<Bil>()
-                .HasMany(e => e.Bookings)
-                .WithRequired(e => e.Bil)
-                .WillCascadeOnDelete(false);
+                .HasMany(e => e.Bookings);
+                //.WithRequired(e => e.Bil)
+                //.WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Booking>()
                 .Property(e => e.KundeEmail)
@@ -68,9 +68,9 @@
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Forhandler>()
-                .HasMany(e => e.Bookings)
-                .WithRequired(e => e.Forhandler)
-                .WillCascadeOnDelete(false);
+                .HasMany(e => e.Bookings);
+//                .WithRequired(e => e.Forhandler)
+//                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Forhandler>()
                 .HasMany(e => e.Medarbejders)
@@ -86,18 +86,18 @@
                 .IsUnicode(false);
 
             modelBuilder.Entity<Kunde>()
-                .HasMany(e => e.Bookings)
-                .WithRequired(e => e.Kunde)
-                .WillCascadeOnDelete(false);
+                .HasMany(e => e.Bookings);
+//                .WithRequired(e => e.Kunde)
+//                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Medarbejder>()
                 .Property(e => e.MedarbejderNavn)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Medarbejder>()
-                .HasMany(e => e.Bookings)
-                .WithRequired(e => e.Medarbejder)
-                .WillCascadeOnDelete(false);
+                .HasMany(e => e.Bookings);
+//                .WithRequired(e => e.Medarbejder)
+//                .WillCascadeOnDelete(false);
         }
     }
 }

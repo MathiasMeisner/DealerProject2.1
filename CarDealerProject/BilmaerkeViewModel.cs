@@ -28,13 +28,10 @@ namespace CarDealerProject
         const string serverUrl = "http://localhost:53751/";
         
         public int bookingID;
-        public int forhandlerID;
         public string kundeEmail;
         public string kundeNavn;
         public string bilModel;
         public string forhandlerNavn;
-        public int bilID;
-        public int medarbejderID;
         public DateTime bookTime;
 
         public ObservableCollection<Bil> OC_bilmaerker { get; set; }
@@ -135,17 +132,17 @@ namespace CarDealerProject
                     //Get all the flower orders from the database
                     var flowerOrderResponse = client.GetAsync("api/bils").Result;
                     var forhandlerOrderResponse = client.GetAsync("api/forhandlers").Result;
-                    var bookingOrderResponse = client.GetAsync("api/bookings").Result;
+                    //var bookingOrderResponse = client.GetAsync("api/bookings").Result;
 
                     //Check response -> throw exception if NOT successful
                     flowerOrderResponse.EnsureSuccessStatusCode();
                     forhandlerOrderResponse.EnsureSuccessStatusCode();
-                    bookingOrderResponse.EnsureSuccessStatusCode();
+                    //bookingOrderResponse.EnsureSuccessStatusCode();
 
                     //Get the hotels as a ICollection
                     var orders = flowerOrderResponse.Content.ReadAsAsync<ICollection<Bil>>().Result;
                     var orders2 = forhandlerOrderResponse.Content.ReadAsAsync<ICollection<Forhandler>>().Result;
-                    var orders3 = bookingOrderResponse.Content.ReadAsAsync<ICollection<Booking>>().Result;
+                    //var orders3 = bookingOrderResponse.Content.ReadAsAsync<ICollection<Booking>>().Result;
 
                     foreach (var order in orders)
                     {
@@ -158,10 +155,10 @@ namespace CarDealerProject
                         this.OC_forhandlere.Add(new Forhandler(order.ForhandlerID, order.ForhandlerNavn, order.ForhandlerAdresse, order.ForhandlerBy, order.ForhandlerTelefon, order.ForhandlerEmail));
                     }
 
-                    foreach (var order in orders3)
+                    /*foreach (var order in orders3)
                     {
                         this.OC_bookings.Add(new Booking(order.BookingID ,order.KundeNavn, order.KundeEmail, order.BilModel, order.ForhandlerNavn, order.BookTime));
-                    }
+                    }*/
                 }
                 catch
                 {

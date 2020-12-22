@@ -21,17 +21,6 @@ namespace CarDealerProject
             }
         }
 
-        private int forhandlerID;
-        public int ForhandlerID
-        {
-            get { return forhandlerID; }
-            set
-            {
-                forhandlerID = value;
-                OnPropertyChanged();
-            }
-        }
-
         private string kundeEmail;
         public string KundeEmail
         {
@@ -39,28 +28,6 @@ namespace CarDealerProject
             set
             {
                 kundeEmail = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int bilID;
-        public int BilID
-        {
-            get { return bilID; }
-            set
-            {
-                bilID = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int medarbejderID;
-        public int MedarbejderID
-        {
-            get { return medarbejderID; }
-            set
-            {
-                medarbejderID = value;
                 OnPropertyChanged();
             }
         }

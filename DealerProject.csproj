@@ -163,9 +163,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Bil.cs" />
+    <Compile Include="Booking.cs" />
+    <Compile Include="BookingOld2.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\BilsController.cs" />
-    <Compile Include="Booking.cs" />
+    <Compile Include="BookingOld.cs" />
     <Compile Include="Controllers\ForhandlersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KundesController.cs" />

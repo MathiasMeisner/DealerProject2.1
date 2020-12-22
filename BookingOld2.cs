@@ -6,8 +6,8 @@ namespace DealerProject
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Booking")]
-    public partial class Booking
+    [Table("BookingOld2")]
+    public partial class BookingOld2
     {
         public int BookingID { get; set; }
 
@@ -25,5 +25,11 @@ namespace DealerProject
 
         [StringLength(50)]
         public string BilModel { get; set; }
+
+        public int? ForhandlerID { get; set; }
+
+        public int? BilID { get; set; }
+
+        public int? MedarbejderID { get; set; }
     }
 }
