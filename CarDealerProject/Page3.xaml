@@ -15,14 +15,14 @@
                 <DataTemplate x:DataType="local:Booking">
                     <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="2">
                         <StackPanel Margin="3" Orientation="Horizontal">
-                            <TextBlock Padding="10, 0, 0, 0" Text="Forhandler:"/>
-                            <!--TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerID, Mode=TwoWay}"/-->
+                            <TextBlock Padding="10, 0, 0, 0" Text="Navn:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind KundeNavn, Mode=TwoWay}"/>
                             <TextBlock Padding="10, 0, 0, 0" Text="Email:"/>
-                            <!--TextBlock Padding="2, 0, 0, 0" Text="{x:Bind KundeEmail, Mode=TwoWay}"/-->
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind KundeEmail, Mode=TwoWay}"/>
+                            <TextBlock Padding="10, 0, 0, 0" Text="Forhandler:"/>
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind ForhandlerNavn, Mode=TwoWay}"/>
                             <TextBlock Padding="10, 0, 0, 0" Text="Bil:"/>
-                            <!--TextBlock Padding="2, 0, 0, 0" Text="{x:Bind BilID, Mode=TwoWay}"/-->
-                            <TextBlock Padding="10, 0, 0, 0" Text="Medarbejder:"/>
-                            <!--TextBlock Padding="2, 0, 0, 0" Text="{x:Bind MedarbejderID, Mode=TwoWay}"/-->
+                            <TextBlock Padding="2, 0, 0, 0" Text="{x:Bind BilModel, Mode=TwoWay}"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>

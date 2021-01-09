@@ -166,7 +166,6 @@
     <Compile Include="Booking.cs" />
     <Compile Include="BookingOld2.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
-    <Compile Include="Controllers\BilsController.cs" />
     <Compile Include="BookingOld.cs" />
     <Compile Include="Controllers\ForhandlersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

@@ -1,4 +1,4 @@
-﻿namespace DealerProject
+namespace DealerProject
 {
     using System;
     using System.Data.Entity;
@@ -8,16 +8,16 @@
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model1")
+            : base("name=Model1NEW")
         {
             base.Configuration.ProxyCreationEnabled = false;
         }
 
-        public virtual DbSet<Bil> Bils { get; set; }
-        public virtual DbSet<Booking> Bookings { get; set; }
-        public virtual DbSet<Forhandler> Forhandlers { get; set; }
-        public virtual DbSet<Kunde> Kundes { get; set; }
-        public virtual DbSet<Medarbejder> Medarbejders { get; set; }
+        public virtual DbSet<Bil> Bil { get; set; }
+        public virtual DbSet<Booking> Booking { get; set; }
+        public virtual DbSet<Forhandler> Forhandler { get; set; }
+        public virtual DbSet<Kunde> Kunde { get; set; }
+        public virtual DbSet<Medarbejder> Medarbejder { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -37,13 +37,20 @@
                 .Property(e => e.BilMotor)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Bil>()
-                .HasMany(e => e.Bookings);
-                //.WithRequired(e => e.Bil)
-                //.WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Booking>()
                 .Property(e => e.KundeEmail)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Booking>()
+                .Property(e => e.KundeNavn)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Booking>()
+                .Property(e => e.ForhandlerNavn)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Booking>()
+                .Property(e => e.BilModel)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Forhandler>()
@@ -63,17 +70,12 @@
                 .IsUnicode(false);
 
             modelBuilder.Entity<Forhandler>()
-                .HasMany(e => e.Bils)
+                .HasMany(e => e.Bil)
                 .WithRequired(e => e.Forhandler)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Forhandler>()
-                .HasMany(e => e.Bookings);
-//                .WithRequired(e => e.Forhandler)
-//                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Forhandler>()
-                .HasMany(e => e.Medarbejders)
+                .HasMany(e => e.Medarbejder)
                 .WithRequired(e => e.Forhandler)
                 .WillCascadeOnDelete(false);
 
@@ -85,19 +87,9 @@
                 .Property(e => e.Navn)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Kunde>()
-                .HasMany(e => e.Bookings);
-//                .WithRequired(e => e.Kunde)
-//                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Medarbejder>()
                 .Property(e => e.MedarbejderNavn)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Medarbejder>()
-                .HasMany(e => e.Bookings);
-//                .WithRequired(e => e.Medarbejder)
-//                .WillCascadeOnDelete(false);
         }
     }
 }

@@ -9,13 +9,6 @@ namespace DealerProject
     [Table("Bil")]
     public partial class Bil
     {
-        // test
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Bil()
-        {
-            Bookings = new HashSet<Booking>();
-        }
-
         public int BilID { get; set; }
 
         public int ForhandlerID { get; set; }
@@ -37,8 +30,5 @@ namespace DealerProject
         public string BilMotor { get; set; }
 
         public virtual Forhandler Forhandler { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

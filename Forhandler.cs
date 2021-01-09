@@ -12,9 +12,8 @@ namespace DealerProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Forhandler()
         {
-            Bils = new HashSet<Bil>();
-            Bookings = new HashSet<Booking>();
-            Medarbejders = new HashSet<Medarbejder>();
+            Bil = new HashSet<Bil>();
+            Medarbejder = new HashSet<Medarbejder>();
         }
 
         public int ForhandlerID { get; set; }
@@ -38,12 +37,9 @@ namespace DealerProject
         public string ForhandlerEmail { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bil> Bils { get; set; }
+        public virtual ICollection<Bil> Bil { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Medarbejder> Medarbejders { get; set; }
+        public virtual ICollection<Medarbejder> Medarbejder { get; set; }
     }
 }
